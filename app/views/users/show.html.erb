@@ -1,6 +1,6 @@
-<%= if current_user.admin %>
+<% if current_user.admin %>
   <h3>ADMIN</h3>
-  
+<% end %>
 <%= current_user.name %>
 Mood: <%= @user.mood %>
 Tickets: <%= @user.tickets %>
