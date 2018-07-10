@@ -1,4 +1,9 @@
+<h1>Listing Attractions</h1>
+
+<table style="width:100%">
+
 <% @attractions.each do |attraction| %>
+  <tr>
   Name: <%= attraction.name %>
   Tickets: <%= attraction.tickets %>
   Details:
