@@ -4,6 +4,10 @@ class AttractionsController < ApplicationController
     @attractions = Attraction.all
   end
 
+  def new
+    @attraction = Attraction.new
+  end 
+
   def show
     @attraction = Attraction.find(params[:id])
     @ride = Ride.new
@@ -34,4 +38,4 @@ class AttractionsController < ApplicationController
     params.require(:attraction).permit(:name, :min_height, :happiness_rating, :nausea_rating, :tickets)
   end
 
-end 
+end
