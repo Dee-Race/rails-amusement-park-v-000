@@ -4,12 +4,12 @@
 <h3>Nausea Rating: <%= @attraction.nausea_rating%></h3>
 <h3>Ticket: <%= @attraction.tickets%></h3>
 
-<% if current_user.admin %>
-  <%= link_to "Edit Attraction", edit_attraction_path %>
-<% else %>
-  <%= form_for @new_ride do |f| %>
-  <%= f.hidden_field :user_id, value: "#{current_user.id}"%>
-  <%= f.hidden_field :attraction_id, value: "#{attraction.id}"%>
-  <%= f.submit "Go on this ride" %>
+  <%= form_tag('/rides/new') do  %>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <%= hidden_field_tag :attraction_id, @attraction.id %>
+  <%= submit_tag_value="Go on this ride" %>
   <% end %>
-<% end %>
+
+  <% if current_user.admin %>
+    <%= link_to "Edit Attraction", edit_attraction_path(@attraction) %>
+  <% end %>
